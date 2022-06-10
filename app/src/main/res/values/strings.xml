@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Avaliacao 02</string>
+    <string name="image_pokemon_sprite_desc">Pokemon sprite</string>
+    <string name="button_xp_text">XP</string>
+    <string name="button_play_text">Jogar</string>
+    <string name="button_pokemon_text">Pokémon</string>
+    <string name="text_username">username</string>
+    <string name="pokemon_logo_description">Pokemon Logo</string>
+    <string name="edit_jogador_hint">Jogador</string>
+    <string name="button_join_battle_text">Entrar na batalha</string>
+    <string name="button_game_start_text">Começar</string>
+    <string name="button_confirm_text">Confirmar</string>
+    <string name="textview_gameplay_text">Quem é esse Pokémon?</string>
+    <string name="text_round_number">Round %d</string>
+    <string name="game_over">Game Over</string>
+</resources>

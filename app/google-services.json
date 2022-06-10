@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "984994114302",
+    "project_id": "avaliacao-02-pdm-ii",
+    "storage_bucket": "avaliacao-02-pdm-ii.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984994114302:android:58a62709c343518bc553af",
+        "android_client_info": {
+          "package_name": "br.edu.ifto.pdmii.avaliacao02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984994114302-rm07cg40eenqu78g8f9fol7psioecso5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyrBywoveoq5n8Q-CwJGFCK25aAsRfaEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "984994114302-rm07cg40eenqu78g8f9fol7psioecso5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
