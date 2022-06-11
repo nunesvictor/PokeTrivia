@@ -37,7 +37,7 @@ public class TitleActivity extends AppCompatActivity {
         final SpringAnimation anim = new SpringAnimation(img, DynamicAnimation.TRANSLATION_Y, 0);
 
         anim.getSpring().setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY);
-        anim.setStartValue(500f);
+        anim.setStartValue(600f);
         anim.getSpring().setStiffness(SpringForce.STIFFNESS_MEDIUM);
 
         anim.start();
