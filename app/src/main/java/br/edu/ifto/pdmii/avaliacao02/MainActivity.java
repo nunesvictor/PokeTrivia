@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // Start default view
-            Log.i(MainActivity.class.getSimpleName(), "onCreate: " + pokemons.size() + " pokemons fetched");
             setContentView(R.layout.activity_main);
 
             LottieAnimationView pikachuAnimationView = findViewById(R.id.animation_pikachu);
@@ -76,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BackgroundMusicService.class);
         intent.setAction(BackgroundMusicService.STOP_PLAYBACK_ACTION);
 
-        Log.i("BackgroundMusicService-Lifecycle", "TitleActivity.stopBackgroundMusic: calling startService");
         startService(intent);
     }
 }

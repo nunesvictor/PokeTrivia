@@ -19,16 +19,12 @@ public class BackgroundMusicService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(BackgroundMusicService.class.getSimpleName(), "onStartCommand: " + intent.getAction());
-
         if (intent.getAction().equals(START_PLAYBACK_ACTION)) {
-            Log.i("BackgroundMusicService-Lifecycle", "BackgroundMusicService.onStartCommand: calling scene.play");
             scene = intent.getParcelableExtra("BACKGROUND_SCENE");
             mediaPlayer = MediaPlayer.create(this, scene.getResource());
 
             scene.play(mediaPlayer);
         } else if (intent.getAction().equals(STOP_PLAYBACK_ACTION)) {
-            Log.i("BackgroundMusicService-Lifecycle", "BackgroundMusicService.onStartCommand: calling mediaPlayer.stop");
             scene.stop(mediaPlayer);
             mediaPlayer = null;
         }
@@ -39,7 +35,6 @@ public class BackgroundMusicService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.i("BackgroundMusicService-Lifecycle", "BackgroundMusicService.onDestroy: calling mediaPlayer.release");
         if (mediaPlayer != null) mediaPlayer.release();
     }
 

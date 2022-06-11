@@ -236,7 +236,6 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BackgroundMusicService.class);
         intent.setAction(BackgroundMusicService.STOP_PLAYBACK_ACTION);
 
-        Log.i("BackgroundMusicService-Lifecycle", "TitleActivity.stopBackgroundMusic: calling startService");
         startService(intent);
     }
 }

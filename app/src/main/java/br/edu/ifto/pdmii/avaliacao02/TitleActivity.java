@@ -25,7 +25,6 @@ public class TitleActivity extends AppCompatActivity {
         gameStartButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-            Log.i("BackgroundMusicService-Lifecycle", "TitleActivity.onCreate: calling finish");
             stopBackgroundMusic();
             finish();
         });
@@ -61,7 +60,6 @@ public class TitleActivity extends AppCompatActivity {
         intent.putExtra("BACKGROUND_SCENE", new Scene(R.raw.pokemon_theme, 0L, 12900L));
         intent.setAction(BackgroundMusicService.START_PLAYBACK_ACTION);
 
-        Log.i("BackgroundMusicService-Lifecycle", "TitleActivity.startBackgroundMusic: calling startService");
         startService(intent);
     }
 
@@ -69,7 +67,6 @@ public class TitleActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BackgroundMusicService.class);
         intent.setAction(BackgroundMusicService.STOP_PLAYBACK_ACTION);
 
-        Log.i("BackgroundMusicService-Lifecycle", "TitleActivity.stopBackgroundMusic: calling startService");
         startService(intent);
     }
 }
