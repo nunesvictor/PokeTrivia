@@ -13,4 +13,5 @@
     <string name="textview_gameplay_text">Quem é esse Pokémon?</string>
     <string name="text_round_number">Round %d</string>
     <string name="game_over">Game Over</string>
+    <string name="text_pokemon_nome">Nome</string>
 </resources>
