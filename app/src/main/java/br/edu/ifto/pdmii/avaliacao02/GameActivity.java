@@ -71,10 +71,12 @@ public class GameActivity extends AppCompatActivity {
         private void uncheckAllExcept(MaterialButton[] haystack, MaterialButton needle) {
             for (MaterialButton button : haystack) {
                 if (button.getId() == needle.getId()) {
+                    button.setSelected(true);
                     continue;
                 }
 
                 button.setChecked(false);
+                button.setSelected(false);
             }
         }
 

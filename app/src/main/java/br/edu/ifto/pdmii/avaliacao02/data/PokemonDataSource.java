@@ -1,13 +1,15 @@
 package br.edu.ifto.pdmii.avaliacao02.data;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -46,8 +48,8 @@ public class PokemonDataSource {
         int limit = RandomInt.between(10, 20);
         int offset = RandomInt.between(0, 1126 - limit);
 
-        String templateUrl = "https://pokeapi.co/api/v2/pokemon?limit={0}&offset={1}";
-        String url = MessageFormat.format(templateUrl, limit, offset);
+        String templateUrl = "https://pokeapi.co/api/v2/pokemon?limit=%d&offset=%d";
+        String url = String.format(Locale.getDefault(), templateUrl, limit, offset);
 
         Gson gson = new Gson();
         String data = new HttpClient().get(url);

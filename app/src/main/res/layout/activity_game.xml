@@ -59,24 +59,45 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_pokemon_1"
                 style="?materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
                 android:checkable="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
                 android:padding="3dip"
+                android:scrollHorizontally="true"
                 android:text="@string/button_pokemon_text"
                 android:textSize="14sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_pokemon_2"
                 style="?materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
                 android:checkable="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
                 android:padding="3dip"
+                android:scrollHorizontally="true"
                 android:text="@string/button_pokemon_text"
                 android:textSize="14sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_pokemon_3"
                 style="?materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
                 android:checkable="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
                 android:padding="3dip"
+                android:scrollHorizontally="true"
                 android:text="@string/button_pokemon_text"
                 android:textSize="14sp" />
         </TableRow>
@@ -86,24 +107,45 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_pokemon_4"
                 style="?materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
                 android:checkable="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
                 android:padding="3dip"
+                android:scrollHorizontally="true"
                 android:text="@string/button_pokemon_text"
                 android:textSize="14sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_pokemon_5"
                 style="?materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
                 android:checkable="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
                 android:padding="3dip"
+                android:scrollHorizontally="true"
                 android:text="@string/button_pokemon_text"
                 android:textSize="14sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_pokemon_6"
                 style="?materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
                 android:checkable="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
                 android:padding="3dip"
+                android:scrollHorizontally="true"
                 android:text="@string/button_pokemon_text"
                 android:textSize="14sp" />
 
