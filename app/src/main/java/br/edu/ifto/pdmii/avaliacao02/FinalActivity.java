@@ -2,13 +2,13 @@ package br.edu.ifto.pdmii.avaliacao02;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +33,12 @@ public class FinalActivity extends AppCompatActivity {
         ListView scoresListView = findViewById(R.id.list_scores);
         ScoreListAdapter adapter = new ScoreListAdapter(this, new ArrayList<>());
         scoresListView.setAdapter(adapter);
+
+        MaterialButton materialButton = findViewById(R.id.button_quit_game);
+        materialButton.setOnClickListener(view -> {
+            stopBackgroundMusic();
+            finish();
+        });
 
         viewModel.getScoresLiveData().observe(this, scores -> {
             adapter.getData().clear();
