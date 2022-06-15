@@ -78,8 +78,11 @@ public class PokemonTrivia implements Parcelable {
         return pokemon != null && guessedName != null && guessedXp != null;
     }
 
-    public boolean isGuessRight() {
-        return pokemon.getName().equals(guessedName) &&
-                pokemon.getBaseExperience().equals(guessedXp);
+    public boolean isNameGuessRight() {
+        return pokemon.getName().equals(guessedName);
+    }
+
+    public boolean isXpGuessRight() {
+        return pokemon.getBaseExperience().equals(guessedXp);
     }
 }

@@ -32,11 +32,21 @@
         app:startIconDrawable="@drawable/ic_pokeball_dark">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_player"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/pokemonDarkBlue"
             android:textSize="24sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_show_hints"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/show_answers_hints"
+        android:textColor="@color/pokemonDarkBlue"
+        android:textSize="18sp"
+        android:theme="@style/Widget.App.Switch" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_join_battle"

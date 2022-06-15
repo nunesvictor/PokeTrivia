@@ -14,4 +14,10 @@
     <string name="text_round_number">Round %d</string>
     <string name="game_over">Game Over</string>
     <string name="text_pokemon_nome">Nome</string>
+    <string name="show_answers_hints">Destacar opções corretas?</string>
+    <string name="button_quit_game_text">SAIR</string>
+    <string name="player_name">PLAYER_NAME</string>
+    <string name="score_desc">Nome: %1$d acerto(s). XP: %2$d acerto(s)</string>
+    <string name="score_avg">AVG: %.2f</string>
+    <string name="score_board">Placar</string>
 </resources>

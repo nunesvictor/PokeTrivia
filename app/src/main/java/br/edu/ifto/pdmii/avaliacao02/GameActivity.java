@@ -1,11 +1,11 @@
 package br.edu.ifto.pdmii.avaliacao02;
 
 import android.content.Intent;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -56,7 +56,10 @@ public class GameActivity extends AppCompatActivity {
     private final ViewHolder viewHolder = new ViewHolder();
     private ArrayList<Pokemon> pokemons;
     private ArrayList<Pokemon> catchedPokemons;
+    private boolean showHints;
     private int round;
+    private int namePoints;
+    private int experiencePoints;
 
     static class ViewHolder {
         public TextView roundTextView;
@@ -98,6 +101,11 @@ public class GameActivity extends AppCompatActivity {
         pokemons = intent.getParcelableArrayListExtra("pokemons");
         catchedPokemons = intent.getParcelableArrayListExtra("catchedPokemons");
         round = intent.getIntExtra("round", 0);
+        namePoints = intent.getIntExtra("namePoints", 0);
+        experiencePoints = intent.getIntExtra("experiencePoints", 0);
+
+        showHints = getSharedPreferences("APP_PREFERENCES", MODE_PRIVATE)
+                .getBoolean("SHOW_HINTS", false);
     }
 
     private void initView() {
@@ -133,8 +141,14 @@ public class GameActivity extends AppCompatActivity {
 
         for (Iterator<String> iterator = pokemonNameOptions.iterator(); iterator.hasNext(); i++) {
             MaterialButton button = pokemonNameButtons[i];
+            String pokemonName = iterator.next();
 
-            button.setText(iterator.next());
+            if (showHints && trivia.getPokemon().getName().equals(pokemonName)) {
+                button.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
+                button.setPaintFlags(button.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            }
+
+            button.setText(pokemonName);
             button.setOnClickListener(view -> {
                 MaterialButton self = (MaterialButton) view;
 
@@ -143,6 +157,7 @@ public class GameActivity extends AppCompatActivity {
                 } else self.setChecked(true);
 
                 trivia.setGuessedName(self.getText().toString());
+                namePoints += trivia.isNameGuessRight() ? 1 : 0;
                 confirmButton.setEnabled(trivia.isTriviaAnswered());
             });
         }
@@ -156,8 +171,14 @@ public class GameActivity extends AppCompatActivity {
 
         for (Iterator<Integer> iterator = pokemonXpOptions.iterator(); iterator.hasNext(); i++) {
             MaterialButton button = pokemonXpButtons[i];
+            Integer baseExperience = iterator.next();
 
-            button.setText(String.format(Locale.getDefault(), "%d", iterator.next()));
+            if (showHints && trivia.getPokemon().getBaseExperience().equals(baseExperience)) {
+                button.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
+                button.setPaintFlags(button.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            }
+
+            button.setText(String.format(Locale.getDefault(), "%d", baseExperience));
             button.setOnClickListener(view -> {
                 MaterialButton self = (MaterialButton) view;
 
@@ -166,6 +187,7 @@ public class GameActivity extends AppCompatActivity {
                 } else self.setChecked(true);
 
                 trivia.setGuessedXp(Integer.valueOf(self.getText().toString()));
+                experiencePoints += trivia.isXpGuessRight() ? 1 : 0;
                 confirmButton.setEnabled(trivia.isTriviaAnswered());
             });
         }
@@ -184,7 +206,11 @@ public class GameActivity extends AppCompatActivity {
                 intent.putParcelableArrayListExtra("catchedPokemons", catchedPokemons);
             } else {
                 intent = new Intent(this, FinalActivity.class);
+                intent.setAction("SAVE_SCORE");
             }
+
+            intent.putExtra("namePoints", namePoints);
+            intent.putExtra("experiencePoints", experiencePoints);
 
             startActivity(intent);
             stopBackgroundMusic();

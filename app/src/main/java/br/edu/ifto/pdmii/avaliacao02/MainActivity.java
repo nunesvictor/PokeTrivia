@@ -1,6 +1,7 @@
 package br.edu.ifto.pdmii.avaliacao02;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -10,14 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import br.edu.ifto.pdmii.avaliacao02.model.Pokemon;
 import br.edu.ifto.pdmii.avaliacao02.model.Scene;
+import br.edu.ifto.pdmii.avaliacao02.model.Score;
 import br.edu.ifto.pdmii.avaliacao02.services.BackgroundMusicService;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             pikachuAnimationView.playAnimation();
 
             Button joinBattleButton = findViewById(R.id.button_join_battle);
+
             joinBattleButton.setOnClickListener(view -> {
                 Intent intent = new Intent(this, GameActivity.class);
 
@@ -56,11 +62,25 @@ public class MainActivity extends AppCompatActivity {
                 intent.putParcelableArrayListExtra("pokemons", new ArrayList<>(pokemons));
                 intent.putParcelableArrayListExtra("catchedPokemons", catchedPokemons);
 
+                savePreferences();
                 startActivity(intent);
                 stopBackgroundMusic();
                 finish();
             });
         });
+    }
+
+    private void savePreferences() {
+        SharedPreferences preferences = getSharedPreferences("APP_PREFERENCES", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        TextInputEditText playerNameEditText = findViewById(R.id.edit_player);
+        editor.putString("PLAYER_NAME", Objects.requireNonNull(playerNameEditText.getText()).toString());
+
+        SwitchMaterial showHintsSwitch = findViewById(R.id.switch_show_hints);
+        editor.putBoolean("SHOW_HINTS", showHintsSwitch.isChecked());
+        
+        editor.apply();
     }
 
     private void startBackgroundMusic() {
