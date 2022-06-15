@@ -43,6 +43,7 @@
         android:id="@+id/switch_show_hints"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:enabled="false"
         android:text="@string/show_answers_hints"
         android:textColor="@color/pokemonDarkBlue"
         android:textSize="18sp"
@@ -52,6 +53,7 @@
         android:id="@+id/button_join_battle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:enabled="false"
         android:text="@string/button_join_battle_text"
         android:textColor="@color/white"
         android:textSize="24sp" />
