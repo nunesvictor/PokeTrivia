@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import br.edu.ifto.pdmii.avaliacao02.adapter.ScoreListAdapter;
 import br.edu.ifto.pdmii.avaliacao02.model.Scene;
 import br.edu.ifto.pdmii.avaliacao02.model.Score;
+import br.edu.ifto.pdmii.avaliacao02.notification.NotificationHandler;
 import br.edu.ifto.pdmii.avaliacao02.services.BackgroundMusicService;
 
 public class FinalActivity extends AppCompatActivity {
@@ -71,6 +72,8 @@ public class FinalActivity extends AppCompatActivity {
                         } else
                             Toast.makeText(this, "Erro ao registrar pontuação", Toast.LENGTH_SHORT).show();
                     });
+
+            NotificationHandler.throwNotification(this, null, "Sua pontuação foi salva!");
         }
     }
 

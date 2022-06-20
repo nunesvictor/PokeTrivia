@@ -4,10 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.dynamicanimation.animation.DynamicAnimation;
@@ -17,6 +15,7 @@ import androidx.dynamicanimation.animation.SpringForce;
 import com.google.android.material.button.MaterialButton;
 
 import br.edu.ifto.pdmii.avaliacao02.model.Scene;
+import br.edu.ifto.pdmii.avaliacao02.notification.NotificationHandler;
 import br.edu.ifto.pdmii.avaliacao02.services.BackgroundMusicService;
 
 public class TitleActivity extends AppCompatActivity {
@@ -24,6 +23,10 @@ public class TitleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
+
+        NotificationHandler.createNotificationChannel(this);
+        NotificationHandler.scheduleNotifications(this);
+
         startBackgroundMusic();
 
         MaterialButton gameStartButton = findViewById(R.id.button_game_start);

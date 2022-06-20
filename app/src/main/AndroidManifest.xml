@@ -33,6 +33,7 @@
         </activity>
 
         <service android:name=".services.BackgroundMusicService" />
+        <receiver android:name=".receivers.ScheduledNotificationReceiver" />
 
         <meta-data
             android:name="preloaded_fonts"
