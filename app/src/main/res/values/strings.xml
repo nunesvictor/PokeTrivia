@@ -20,4 +20,5 @@
     <string name="score_desc">Nome: %1$d acerto(s). XP: %2$d acerto(s)</string>
     <string name="score_avg">AVG: %.2f</string>
     <string name="score_board">Placar</string>
+    <string name="resultado_falado">RESULTADO FALADO</string>
 </resources>
