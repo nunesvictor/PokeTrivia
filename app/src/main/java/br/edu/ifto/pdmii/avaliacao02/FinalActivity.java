@@ -68,12 +68,10 @@ public class FinalActivity extends AppCompatActivity {
                     .push()
                     .setValue(score).addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(this, "Pontuação registrada", Toast.LENGTH_SHORT).show();
+                            NotificationHandler.throwNotification(this, null, "Sua pontuação foi salva!");
                         } else
                             Toast.makeText(this, "Erro ao registrar pontuação", Toast.LENGTH_SHORT).show();
                     });
-
-            NotificationHandler.throwNotification(this, null, "Sua pontuação foi salva!");
         }
     }
 
